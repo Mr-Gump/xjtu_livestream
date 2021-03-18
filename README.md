@@ -10,20 +10,22 @@
 
 #### 1.新建专辑
 
-![image-20210318201026111](.\README.assets\image-20210318201026111.png)
+![image-20210318201026111](https://github.com/Mr-Gump/xjtu_livestream/raw/main/README.assets/image-20210318201026111.png)
 
 #### 2.为专辑起一个名字,并点击确定
 
-![image-20210318201813010](.\README.assets\image-20210318201813010.png)
+![image-20210318201813010](https://github.com/Mr-Gump/xjtu_livestream/raw/main/README.assets/image-20210318201813010.png)
+
+
 
 #### 3.选择左下角 添加->添加链接
 
-![image-20210318201854498](.\README.assets\image-20210318201854498.png)
+![image-20210318201854498](https://github.com/Mr-Gump/xjtu_livestream/raw/main/README.assets/image-20210318201854498.png)
 
 #### 4.输入直播源链接,并点击确定
 
-![image-20210318202005992](.\README.assets\image-20210318202005992.png)
+![image-20210318202005992](https://github.com/Mr-Gump/xjtu_livestream/raw/main/README.assets/image-20210318202005992.png)
 
 #### 5.即刻畅想`xjtu`大部分课程(摄像头)的直播
 
-![image-20210318201238628](.\README.assets\image-20210318201238628.png)
+![image-20210318201238628](https://github.com/Mr-Gump/xjtu_livestream/raw/main/README.assets/image-20210318201238628.png)
