@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>y=xsinx的直播</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="https://z3.ax1x.com/2021/03/21/64fhJU.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      subMaxLevel: 2,
+      // search: 'auto',
+      search: {
+      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      paths: 'auto', // or 'auto'
+      placeholder: '在这里搜索课程或老师吧',
+      noData: '没有找到,建议手动去相应学院找',
+
+      // 搜索标题的最大层级, 1 - 6
+      depth: 6,
+
+      hideOtherSidebarContent: true,
+      },
+      plugins: [
+    function(hook) {
+     
+      function isClass(status) {
+          let courseStartTimeWinter = [480, 600, 840, 970, 1150]
+          let courseStartTimeSummer = [480, 600, 870, 1000, 1180]
+          let courseStartTime
+          let myDate = new Date()
+          let firstDate = new Date()
+          let month = myDate.getMonth + 1
+          //定义哪一天开学，就从哪一天算起
+          firstDate.setMonth(2)
+          firstDate.setDate(1)
+          let distance = myDate - firstDate
+          let weekDistance = Math.ceil(Math.ceil(distance / (24 * 60 * 60 * 1000)) / 7) //获取当前是第几周
+          //获取今天是星期几
+          let week = myDate.getDay()
+          if(week==0){
+              week = 7
+          }
+          let hour = myDate.getHours()
+          let minute = myDate.getMinutes()
+          let presentCourseTime = 0
+          if (month >= 5 && month < 10) {
+              courseStartTime = courseStartTimeSummer
+          } else {
+              courseStartTime = courseStartTimeWinter
+          }
+          for (let i = 0; i < 5; i++) {
+              if (((hour * 60 + minute) - courseStartTime[i]) >= 0 && ((hour * 60 + minute) - courseStartTime[i]) <= 120) {
+                  presentCourseTime = i + 1
+              }
+          }
+          console.log(weekDistance,week,presentCourseTime)
+          for (let i = 0; i < 560; i++) {
+              if (status[i] == 1) {
+                  let week2 = Math.ceil((i + 1) / 35)
+                  let day2 = Math.ceil(((i + 1) - (week2 - 1) * 35) / 5)
+                  let courseTime = (i + 1) % 5
+                  console.log("这是目标课程",week2,day2,courseTime)
+                  if (week2 == weekDistance && day2 == week && courseTime == presentCourseTime) {
+                      return true
+                  }
+              }
+          }
+          return false
+      }
+
+      hook.doneEach(function(html) {
+      console.log(html)
+    let boxs = document.getElementsByClassName("alertBox")
+    for (let i = 0; i < boxs.length; i++) {
+        if (isClass(boxs[i].getAttribute("status")) == true) {
+            boxs[i].style.cssText = "background-color:#eb8181;outline:1px solid #FFFFFF"
+            boxs[i].innerHTML = "正在直播"
+        } else {
+            boxs[i].style.cssText = "background-color:#ada7a1;outline:1px solid #FFFFFF"
+            boxs[i].innerHTML = "暂未直播"
+        }
+    }
+    return (html)
+  });
+    }]
+      }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+
+</body>
+</html>
